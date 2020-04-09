@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+  task:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - DJANGO_DEBUG=True
+    ports:
+      - "8001:8001"
+    command: python3 manage.py process_tasks
+    volumes:
+      - ./:/app/
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - DJANGO_DEBUG=True
+    ports:
+      - "8000:8000"
+    command: python3 manage.py process_tasks
+    volumes:
+      - ./:/app/

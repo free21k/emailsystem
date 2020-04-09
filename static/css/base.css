@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+* {box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;padding:0;margin:0;}
+:before {box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
+html, body {height:100%;line-height: 1;}
+body{margin:0;padding:0;font-size:12px;font-family: '맑은 고딕','Open Sans',Dotum,'돋움',gulim,'굴림',sans-serif;font-weight: normal;overflow-y: scroll;color: #000;min-width: 800px;}
+img {vertical-align: top;outline: none;}
+img,fieldset,iframe{border: 0;}
+input, select, textarea, table {outline: none;}
+input { padding: 5px 12px; }
+input, select, textarea { color: #333;font-size: 12px;font-family: inherit;}
+input:focus, select:focus, textarea:focus { border-color: #8d744a !important; }
+input:disabled, select:disabled {background: #f5f5f5;color: #aaa;}
+select { -webkit-appearance: none;-moz-appearance: none;appearance: none; }
+select::-ms-expand { display: none !important;}
+hr { display:none; }
+legend, caption, .hide { width:0; height:0; margin:0; padding:0; visibility:hidden; font-size:0; line-height:0; position:absolute; top:0; left:0; overflow:hidden;}
+ol, ul, li { list-style:none; }
+table { border-collapse:collapse; border-spacing:0;}
+a, a:link, a:visited, a:active, a:hover, a:focus {text-decoration:none;outline: none;font-family: inherit;}
+em {font-style:normal;}
+button {border:0;background:none;cursor:pointer;outline: none;font-family: inherit;}
+button::-moz-focus-inner {border: 0;outline: none;} /* 파이어폭스 버튼 클릭시 내부 점선 삭제 */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {display: block;}
+th, td {text-align: center;vertical-align: middle;word-break: break-all;}
+select:-moz-focusring { color: transparent !important;text-shadow: 0 0 0 #000;}
+
+/* Hidden */
+.hidden {display: none !important;}
+.blind {text-indent: -9999px;}
+.blind-position {position: absolute;top: -9999em;width: 1px;height: 1px;overflow: hidden;}
+.over-hidden {overflow: hidden !important;}
+.over-y-a {overflow-y: auto !important;}
+.pop-over-hidden {overflow: hidden !important;margin-right: 17px;background: #fff;}
+
+/* Skip */
+.skip a{display:block;position:absolute;left:0;top:-9999em;z-index:9999;display:block;width:100%;background-color:#563d7c;color:#fff;}
+.skip a:focus{top:0;}
+
+/* clear */
+.clearfix {*zoom:1}
+.clearfix:after {content:'';display: block;clear: both;}
+
+/* display-table */
+.display-table {display: table;table-layout: fixed;width: 100%;}
+.display-table .display-table {width: auto;}
+.table-row {display: table-row;}
+.table-cell {display: table-cell;vertical-align: middle;}
+.table-cell.align-top {vertical-align: top;}
+
+/* text-align */
+.text-right {text-align: right;}
+.text-left {text-align: left;}
+.text-left-94 {text-align: left; margin-left:94px;}
+.text-center {text-align: center;}
+
+/* text-decoration */
+.tdu {text-decoration: underline;}
+
+/* line-height */
+.lh16p {line-height: 16px;}
+
+/* margin-top */
+.mt10 {margin-top: 10px;}
+.mt20 {margin-top: 20px;}
+.mt30 {margin-top: 30px;}
+.mt40 {margin-top: 40px;}
+.mt50 {margin-top: 50px;}
+
+/* margin-bottom */
+.mb10 {margin-bottom: 10px;}
+.mb12 {margin-bottom: 16px;}
+.mb15 {margin-bottom: 15px;}
+.mb30 {margin-bottom: 30px;}
+.mb40 {margin-bottom: 40px;}
+
+/* margin-left */
+.ml10 {margin-left: 10px;}
+.ml15 {margin-left: 15px;}
+.ml25 {margin-left: 25px;}
+
+/* margin-right */
+.mr5 {margin-right: 5px;}
+.mr10 {margin-right: 10px;}
+.mr25 {margin-right: 25px;}
+.mr30 {margin-right: 30px;}
+.mr35 {margin-right: 35px;}
+.mr38 {margin-right: 38px;}
+.mr40 {margin-right: 40px;}
+.mr50 {margin-right: 50px;}
+
+/* padding-left */
+.pl20 {padding-left: 20px;}
+.pl40 {padding-left: 40px;}
+.pl100 {padding-left: 100px;}
+
+/* padding-right */
+.pr40 {padding-right: 40px;}
+
+/* padding-top */
+.pt30 {padding-top: 30px;}
+
+/* padding-bottom */
+.pb0 {padding-bottom: 0;}
+.pb50 {padding-bottom: 50px;}
+.pb60 {padding-bottom: 60px;}
+
+/* float */ 
+.float-left {float: left;}
+.float-right {float: right;}
+
+/* 밑줄 */
+.tdu {text-decoration: underline !important;}
+
+/* 말줄임 */
+.ellipsis {white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;overflow: hidden;}
+
+/* 줄바꿈 */
+.white-pre-wrap {white-space: pre-wrap;}
+
+/* checkbox, radio style */
+.checks {
+	position: relative;
+	font-size: 12px;
+	display: inline-block;
+	color: #333;
+}
+.checks input[type="checkbox"] {/* 실제 체크박스는 화면에서 숨김 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+.checks input[type="checkbox"] + label {
+	position: relative;
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	padding-left: 30px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.checks input[type="checkbox"] + label:before {
+	content:'';
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 18px;
+	height: 100%;
+	background-image: url("../img/checkbox-bg.png");
+	background-repeat:  no-repeat;
+}
+.checks input[type="checkbox"] + label:before {
+	background-position: 0 0;
+}
+/* 체크했을때 */
+.checks input[type="checkbox"]:checked + label {
+	color: #1C9587;
+}
+.checks input[type="checkbox"]:checked + label:before {
+	background-position: -18px 0;
+}
+.checks input[type="checkbox"]:disabled + label {
+	cursor: not-allowed;
+}
+.checks input[type="checkbox"]:disabled + label:before {
+	background-position: -101px 0;
+	background-color: #ddd;
+	border: 1px solid #aaa;
+}
+.checks input[type="checkbox"]:checked:disabled + label:before {
+	background-color: transparent;
+	border: 0;
+    background-position: -36px 0;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}

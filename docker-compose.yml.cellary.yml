@@ -1,0 +1,88 @@
+version: "2.4"
+networks:
+  emailsystem-net:  # Container들의 Private Network을 설정한다.
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24
+volumes:  # Container 들에서 사용되는 Volume을 정의한다.
+    emailsystem-db-volume: {}
+    emailsystem-cache-volume: {}
+    emailsystem-media-volume: {}
+
+services:
+    emailsystem-db:
+        image: mariadb:10.3.11
+        environment:
+            - MYSQL_DATABASE=sample_database
+            - MYSQL_USER=sample
+            - MYSQL_PASSWORD=samplepassword
+            - MYSQL_ROOT_PASSWORD=samplepassword
+        ports:
+            - "127.0.0.1:3306:3306"
+        volumes:
+            - emailsystem-db-volume:/var/lib/mysql
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+        healthcheck:
+            test: ["CMD", "/usr/bin/mysql", "--user=sample", "--password=samplepassword", "--execute=\"SHOW DATABASES\""]
+            interval: 3s
+            timeout: 1s
+            retries: 5
+        networks:
+            emailsystem-net:
+                ipv4_address: 192.168.0.2
+        
+    emailsystem-cache:
+        image: redis:5.0.3-alpine
+        command: redis-server --requirepass samplepassword
+        ports:
+            - "127.0.0.1:6379:6379"
+        volumes:
+            - emailsystem-cache-volume:/data
+        healthcheck:
+            test: "redis-cli -h 127.0.0.1 ping"            
+            interval: 3s
+            timeout: 1s
+            retries: 5
+        networks:
+            emailsystem-net:
+                ipv4_address: 192.168.0.3   
+
+    sample-project:
+        build:
+            context: .
+            dockerfile: ./Dockerfile        
+        ports:
+            - "127.0.0.1:8000:8000"            
+        depends_on:            
+            - emailsystem-db               
+            - emailsystem-cache
+        links:
+            - emailsystem-db:emailsystem-db
+            - emailsystem-cache:emailsystem-cache
+        command: bash -c "pip3 install -r requirements.txt && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+        networks:
+            emailsystem-net:
+                ipv4_address: 192.168.0.4
+        volumes:
+            - .:/sample-project/sample-project
+            - emailsystem-media-volume:/sample-project/emailsystem-media:Z
+                  
+    emailsystem-task:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+
+        depends_on:            
+            - emailsystem-db
+            - emailsystem-cache
+
+        links:
+            - emailsystem-db:emailsystem-db
+            - emailsystem-cache:emailsystem-cache
+        command: bash -c "pip3 install -r requirements.txt && python3 manage.py celery"
+        networks:
+            emailsystem-net:
+                ipv4_address: 192.168.0.5
+        volumes:
+            - .:/sample-project/sample-project
+            - emailsystem-media-volume:/sample-project/emailsystem-media:Z

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+	<title>이메일 관리</title>
+{% load static %}
+    <link href="{% static "css/base.css"%}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/main.css"%}" rel="stylesheet" type="text/css">
+
+	<script src="{% static "js/jquery-1.11.3.min.js"%}" type="text/javascript" ></script>
+	<script src="{% static "js/datatables/jquery.dataTables.min.js"%}" type="text/javascript"></script>
+	<script src="{% static "js/datatables/set-dataTables.js"%}" type="text/javascript"></script>
+	<script src="{% static "js/datatables/simple_numbers_no_ellipses.js"%}" type="text/javascript"></script>
+	<script src="{% static "js/ui.js"%}" type="text/javascript"></script>
+    <script src="{% static "js/common.js"%}" type="text/javascript"></script>
+	<script src="{% static "js/logout.js"%}" type="text/javascript"></script>
+    <script src="{% static "js/email_addresses.js"%}" type="text/javascript"></script>
+</head>
+<body>
+	<!-- wrap s -->
+	<div id="wrap">
+		<!-- header s -->
+		<div id="header" class="clearfix">
+			<div class="gnb-contents">
+				<h2 class="blind-position">전체메뉴</h2>		
+				<ul class="gnb-menu clearfix">
+					<li>
+						<a href="emails">이메일 관리</a>
+					</li>
+					<li>
+						<a href="email_addresses">이메일 주소 관리</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="user-contents">
+				<li><button id="logoutBtn" type="button" class="login" title="로그아웃">로그아웃</button></li>
+			</ul>
+		</div>
+		<!-- header e -->
+
+		<!-- contents s -->
+		<div id="contents">
+			<div class="contents-in">
+				<div class="section">
+					<div class="section-top clearfix">
+						<h3 class="section-title">이메일 관리</h3>
+						<ul class="target-navi clearfix">
+							<li>Home</li>
+							<li class="arrow">&gt;</li>
+							<li>이메일 관리</li>
+						</ul>
+					</div>
+					<div class="section-cont">
+						<!-- cont-row s -->
+						<div class="cont-row"> 
+							<h4 class="table-title">이메일 목록</h4>
+						</div> 
+						<!-- cont-row e --> 
+						<!-- cont-row s -->
+						<div class="cont-row border-t">
+							<!-- table-list s -->
+							<div class="table-list"> 
+								<div class="data-table-actions clearfix">
+									<div class="table-length clearfix">
+										<label>표시개수</label>
+										<div class="select-box">
+											<select class="form-select select-change" autocomplete="off" disabled>
+												<option value="10">10</option>
+												<option value="20">20</option>
+												<option value="30">30</option>
+											</select>
+											<span class="select-arrow">30</span> <!-- 처음 보여지는 옵션과 같은값 -->
+										</div>
+									</div>
+								</div>
+								<table class="table-style data-table">
+									<colgroup>
+										<col width="50%">
+										<col width="50%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>메일주소</th>
+											<th>거절여부</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="6">조회된 목록이 없습니다.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div> 
+							<!-- table-list e -->
+						</div>
+						<div class="cont-row pb50">
+							<!-- table-list s -->
+							<div class="table-list">
+								<form autocomplete="off">
+									<h4 class="table-title">이메일 주소 등록</h4>
+									<div class="group-box display-table">
+										<div class="form-group table-row">
+											<div class="table-cell title-cell">
+												<label class="control-label required">이메일 주소</label>
+											</div>
+											<div class="table-cell">
+												<div class="input-box input-box-l">
+													<input id="email" class="form-input" type="text">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions text-center">
+										<button id="registerEmailAddress" type="button" class="btn ml10">이메일 주소 등록</button>
+									</div>
+								</form>
+							</div>
+							<!-- table-list e -->
+						</div>
+ 
+					</div>
+
+                </div>
+			</div>
+		</div>
+		<!-- contents e -->
+	</div>
+	<!-- wrap e -->
+
+	<div class="data-process">
+		<div class="data-process-in">
+			<div class="process">로딩중</div>
+		</div>
+	</div>
+
+</body>
+</html>
