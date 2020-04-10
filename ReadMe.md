@@ -8,8 +8,8 @@ Installation:
     
 2. Create database
     ```` 
-    python manage.py makemigrations
-    python manage.py migrate
+    python3 manage.py makemigrations
+    python3 manage.py migrate
     ````
 
 3. Create superuser to have database filled with some data
@@ -29,3 +29,4 @@ http://localhost:8000/login
 To add user to database go to: http://localhost:8000/admin/ and add new users.
 
 
+pip freeze > requirements.txt
