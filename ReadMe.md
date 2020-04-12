@@ -30,3 +30,4 @@ To add user to database go to: http://localhost:8000/admin/ and add new users.
 
 
 pip freeze > requirements.txt
+docker-compose up --build
