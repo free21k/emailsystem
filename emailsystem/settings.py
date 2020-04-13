@@ -145,8 +145,8 @@ STATICFILES_DIRS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = 'newsletter1@ahope.co.kr'
-EMAIL_HOST_PASSWORD = 'dkghq90!@'
+EMAIL_HOST_USER = 'eclipse@ahope.co.kr'
+EMAIL_HOST_PASSWORD = 'rladbstjr1!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
