@@ -4,7 +4,7 @@ astroid==2.3.3
 billiard==3.6.3.0
 celery==4.4.2
 colorama==0.4.3
-Django==3.0.4
+Django==3.0.7
 django-background-tasks==1.2.5
 django-compat==1.0.15
 django-datatables-view==1.19.1
